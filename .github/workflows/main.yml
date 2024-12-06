@@ -27,7 +27,7 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
         
       - name: build
-        run: "./release.sh --base=/dist/"
+        run: "./release.sh --base=/MySutilApp/"
         
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
