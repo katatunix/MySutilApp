@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "App", "App\App.fsproj", "{599E9DAE-A2E2-4E76-AF5E-713B73AF1264}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sutil.Router2", "Sutil.Router2\Sutil.Router2.fsproj", "{EF8E3E47-F260-4057-A7DF-854216DA1BDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{599E9DAE-A2E2-4E76-AF5E-713B73AF1264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{599E9DAE-A2E2-4E76-AF5E-713B73AF1264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{599E9DAE-A2E2-4E76-AF5E-713B73AF1264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF8E3E47-F260-4057-A7DF-854216DA1BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF8E3E47-F260-4057-A7DF-854216DA1BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF8E3E47-F260-4057-A7DF-854216DA1BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF8E3E47-F260-4057-A7DF-854216DA1BDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

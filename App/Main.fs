@@ -1,12 +1,11 @@
 module Main
 
-open Browser
 open Sutil
 open Sutil.CoreElements
 open Sutil.Bulma
 open type CssBulma
 open type CssFa
-open Sutil.Router
+open Sutil.Router2
 
 type Page =
     | Home
@@ -20,9 +19,9 @@ let parseUrl = function
     | _ -> Home
 
 let formatUrl = function
-    | Home -> "#/"
-    | Counter -> "#/counter"
-    | PeicResult -> "#/peic-result"
+    | Home -> Router.format()
+    | Counter -> Router.format "counter"
+    | PeicResult -> Router.format "peic-result"
 
 let main page =
     let mkItem (thePage: Page) (iconName: string seq)  =
@@ -34,10 +33,7 @@ let main page =
                     mkIcon iconName
                 ]
                 Html.span (string thePage)
-                Ev.onClick (fun _ ->
-                    page <~ thePage
-                    window.location.assign (formatUrl thePage)
-                )
+                Attr.href (formatUrl thePage)
             ]
         ]
 
@@ -46,7 +42,7 @@ let main page =
             Html.ul [
                 mkItem Home [ Fas; FaHome ]
                 mkItem Counter [ Fas; FaCalculator ]
-                mkItem PeicResult [ Fas; FaLanguage ]
+                mkItem PeicResult [ Fas; FaRocket ]
             ]
         ]
 
@@ -58,18 +54,9 @@ let main page =
     ]
 
 let view () =
+    let page = Router.currentUrl() |> parseUrl |> Store.make
 
-    let page =
-        Router.getCurrentUrl window.location
-        |> parseUrl
-        |> Store.make
-
-    let routerSub =
-        Navigable.listenLocation (fun location ->
-            Router.getCurrentUrl location
-            |> parseUrl
-            |> Store.set page
-        )
+    let routerSub = Router.listen RouteMode.Hash (parseUrl >> Store.set page)
 
     bulma.section [
         disposeOnUnmount [ page ]
