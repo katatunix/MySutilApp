@@ -27,7 +27,7 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
         
       - name: build
-        run: "./release.sh"
+        run: "./release.sh --base=/dist/"
         
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
