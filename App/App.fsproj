@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Css.fs" />
+        <Compile Include="Common.fs" />
+        <Compile Include="Home.fs" />
+        <Compile Include="Counter.fs" />
+        <Compile Include="PeicResult.fs" />
+        <Compile Include="Main.fs" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Sutil" Version="2.0.16" />
+      <PackageReference Include="Zanaptak.TypedCssClasses" Version="1.0.0" />
+    </ItemGroup>
+</Project>

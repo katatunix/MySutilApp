@@ -1,0 +1,1 @@
+dotnet serve -d dist -o -q
