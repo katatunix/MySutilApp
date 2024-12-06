@@ -2,26 +2,29 @@ module Main
 
 open Sutil
 open Sutil.CoreElements
+open Sutil.Router2
 open Sutil.Bulma
 open type CssBulma
 open type CssFa
-open Sutil.Router2
 
 type Page =
     | Home
     | Counter
     | PeicResult
+    | RandomPicture
 
 let parseUrl = function
     | [] -> Home
     | [ "counter" ] -> Counter
     | [ "peic-result" ] -> PeicResult
+    | [ "random-picture" ] -> RandomPicture
     | _ -> Home
 
 let formatUrl = function
     | Home -> Router.format()
     | Counter -> Router.format "counter"
     | PeicResult -> Router.format "peic-result"
+    | RandomPicture -> Router.format "random-picture"
 
 let main page =
     let mkItem (thePage: Page) (iconName: string seq)  =
@@ -43,6 +46,7 @@ let main page =
                 mkItem Home [ Fas; FaHome ]
                 mkItem Counter [ Fas; FaCalculator ]
                 mkItem PeicResult [ Fas; FaRocket ]
+                mkItem RandomPicture [ Fas; FaImage ]
             ]
         ]
 
@@ -50,6 +54,7 @@ let main page =
             | Home -> Home.view ()
             | Counter -> Counter.view ()
             | PeicResult -> PeicResult.view ()
+            | RandomPicture -> RandomPicture.create ()
         )
     ]
 
