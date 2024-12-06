@@ -22,11 +22,9 @@ let view () =
         hiddenInput "s_examdate"    "16-11-2024"
         hiddenInput "s_capdothi"    "QM"
 
-        bulma.buttons [
-            buttons.isCentered
-            bulma.button.submit [
-                prop.value "Get result 🚀 "
-                button.isLarge
-            ]
+        bulma.button.submit [
+            prop.value "Get result 🚀"
+            button.isLarge
+            button.isFullwidth
         ]
     ]

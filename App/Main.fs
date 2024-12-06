@@ -42,6 +42,8 @@ let main page =
 
     fragment [
         bulma.tabs [
+            tabs.isToggle
+            tabs.isFullwidth
             Html.ul [
                 mkItem Home [ Fas; FaHome ]
                 mkItem Counter [ Fas; FaCalculator ]
@@ -67,7 +69,9 @@ let view () =
         disposeOnUnmount [ page ]
         unsubscribeOnUnmount [ routerSub ]
         bulma.container [
-            bulma.box (main page)
+            container.isFluid
+            //bulma.box ()
+            main page
         ]
     ]
 

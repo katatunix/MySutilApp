@@ -17,11 +17,11 @@ let load (url: string) =
             | ResponseContent.Blob blob -> blob
             | _ -> failwith "Expected binary response"
 
-        let x = URL.createObjectURL(blob)
+        let objectUrl = URL.createObjectURL(blob)
         #if DEBUG
-        printfn "createObjectURL: %s" x
+        printfn "createObjectURL: %s" objectUrl
         #endif
-        return x
+        return objectUrl
     }
 
 let revoke (url: string) =
